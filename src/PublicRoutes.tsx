@@ -1,3 +1,4 @@
+import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import LoginPage from './components/SignIn';
 import SignUp from './components/SignUp';
