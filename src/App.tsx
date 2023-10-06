@@ -1,25 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+// import { Auth0Provider } from '@auth0/auth0-react';
 import './App.css';
+import { AppRouter } from './AppRouter';
 
 function App() {
+  // Create a client
+const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <QueryClientProvider client={queryClient}>
+      {/* <Auth0Provider
+        domain="{yourDomain}"
+        clientId="{yourClientId}"
+        authorizationParams={{
+          redirect_uri: window.location.origin
+        }}
+    > */}
+      <div className="App">
+      <AppRouter />
     </div>
+    {/* </Auth0Provider> */}
+    </QueryClientProvider>
   );
 }
 
