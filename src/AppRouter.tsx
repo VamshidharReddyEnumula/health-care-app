@@ -5,9 +5,11 @@ import { PrivateRoutes } from "./PrivateRoutes";
 
 type Status = 'checking' | 'authenticated' | 'no-authenticated'
 
-const status: Status = 'no-authenticated'
+let status: Status = 'authenticated';
 
 export const AppRouter = () => {
+
+    status = 'no-authenticated';
 
     if (status === 'checking') return <div className="loading">Checking credentials...</div>
 

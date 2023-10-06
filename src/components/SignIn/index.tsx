@@ -13,9 +13,16 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright() {
+interface copyrightProps {
+    sx: {
+        mt?: number;
+        mb?: number;
+    }
+}
+
+function Copyright(props: copyrightProps) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Health Care Website
