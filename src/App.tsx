@@ -6,6 +6,7 @@ import {
 // import { Auth0Provider } from '@auth0/auth0-react';
 import './App.css';
 import { AppRouter } from './AppRouter';
+import { AuthContextProvider } from './hooks/AuthContextProvider';
 
 function App() {
   // Create a client
@@ -20,9 +21,11 @@ const queryClient = new QueryClient();
           redirect_uri: window.location.origin
         }}
     > */}
+    <AuthContextProvider>
       <div className="App">
       <AppRouter />
     </div>
+    </AuthContextProvider>
     {/* </Auth0Provider> */}
     </QueryClientProvider>
   );
