@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { copyrightProps } from '../../types/common';
+import { useAuthContext } from '../../hooks/AuthContextProvider';
 
 function Copyright(props: copyrightProps) {
   return (
@@ -31,6 +32,7 @@ function Copyright(props: copyrightProps) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const { login } = useAuthContext();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -38,6 +40,7 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    login();
   };
 
   return (

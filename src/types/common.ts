@@ -5,3 +5,5 @@ export interface copyrightProps {
         pt?: number;
     }
 }
+
+export type AuthState = 'checking' | 'authenticated' | 'no-authenticated'

@@ -25,6 +25,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import { copyrightProps } from '../../types/common';
+import { useAuthContext } from '../../hooks/AuthContextProvider';
 
 function Copyright(props: copyrightProps) {
   return (
@@ -93,6 +94,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const defaultTheme = createTheme();
 
 export default function Dashboard() {
+  const { logout } = useAuthContext();
   const [openLeftNav, setOpenLeftNav] = React.useState(true);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -103,6 +105,10 @@ export default function Dashboard() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    logout();
+  }
 
   const toggleDrawer = () => {
     setOpenLeftNav(!openLeftNav);
@@ -205,7 +211,7 @@ export default function Dashboard() {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
