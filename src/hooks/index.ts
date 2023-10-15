@@ -1,2 +1,2 @@
 // hooks goes here
-export {};
+// export { usePermissions } from './usePermissions';
