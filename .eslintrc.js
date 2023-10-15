@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     // Add any additional rules or overrides here
     '@typescript-eslint/no-explicit-any': 'error',
+    'max-lines': 2
   },
   settings: {
     react: {
