@@ -2,14 +2,12 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { PublicRoutes } from "./PublicRoutes";
 import { PrivateRoutes } from "./PrivateRoutes";
-
-type Status = 'checking' | 'authenticated' | 'no-authenticated'
-
-let status: Status = 'authenticated';
+import { useAuthContext } from './hooks/AuthContextProvider';
 
 export const AppRouter = () => {
 
-    status = 'no-authenticated';
+    const { authState } = useAuthContext();
+    // status = 'no-authenticated';
 
     if (status === 'checking') return <div className="loading">Checking credentials...</div>
 
@@ -17,7 +15,7 @@ export const AppRouter = () => {
         <BrowserRouter>
             <Routes>
                 {
-                    status === 'authenticated'
+                    authState === 'authenticated'
                         ? <Route path="/*" element={<PrivateRoutes />} />
                         : <Route path="/*" element={<PublicRoutes />} />
                 }
