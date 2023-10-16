@@ -11,7 +11,11 @@ const useAuth = () => {
     setTimeout(() => {
       setAuthState('authenticated');
     }, 1000);
-    // redirect("/");
+
+    // setTimeout(() => {
+    //   redirect("/");
+    // }, 1000);
+
   };
 
   const logout = () => {
@@ -19,7 +23,7 @@ const useAuth = () => {
     setTimeout(() => {
       setAuthState('no-authenticated');
     }, 1000);
-    redirect("/");
+    // redirect("/");
   };
 
   const redirect = (path: string) => {
