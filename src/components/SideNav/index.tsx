@@ -92,7 +92,7 @@ export default function Sidenav() {
   const theme = useTheme();
   const [openSubMenu, setOpenSubMenu] = React.useState(false);
 
-  const { logout, redirect } = useAuthContext();
+  const { logout } = useAuthContext();
   const [openLeftNav, setOpenLeftNav] = React.useState(true);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -115,7 +115,7 @@ export default function Sidenav() {
     if(navItem.subItems.length > 0){
         setOpenSubMenu(!openSubMenu);
 } else {
-    redirect(navItem.path);
+    console.log(`In ${navItem.name} page`);
 }
 
   };
