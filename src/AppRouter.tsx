@@ -7,7 +7,6 @@ import { useAuthContext } from './hooks/AuthContextProvider';
 export const AppRouter = () => {
 
     const { authState } = useAuthContext();
-    // status = 'no-authenticated';
 
     if (status === 'checking') return <div className="loading">Checking credentials...</div>
 
